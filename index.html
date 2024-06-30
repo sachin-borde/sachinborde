@@ -28,11 +28,31 @@
             background-color: #007bff;
             color: #fff;
             text-align: center;
-            padding: 15px 0;
+            padding: 15px 0px 8px;
             margin: 0;
             border-top-left-radius: 20px;
             border-top-right-radius: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
+        }
+
+        .header-left {
+            padding: 0 20px 0 20px;
+        }
+
+        .header-left img {
+            width: 150px;
+            height: 160px;
+            border-radius: 10%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 4px #007bff;
+        }
+
+        .header-right {
+            flex: 1;
+            text-align: left;
+            padding-left: 20px;
         }
 
         .header h1 {
@@ -44,6 +64,7 @@
             font-size: 1.2rem;
             margin: 0;
         }
+
 
         .contactinfo {
             background-color: #ced4da;
@@ -173,9 +194,15 @@
 <body>
     <div class="container">
         <header class="header">
-            <h1>Sachin Borde</h1>
-            <p>Software Engineer</p>
+            <div class="header-left">
+                <img src="/profile-pic.jpg" alt="Profile Picture">
+            </div>
+            <div class="header-right">
+                <h1>Sachin Borde</h1>
+                <p>Software Engineer</p>
+            </div>
         </header>
+
 
         <div class="contact-info">
             <h2 class="section-title">Contact Information</h2>
