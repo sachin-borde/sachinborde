@@ -32,16 +32,16 @@
         }
 
         .container {
-            width: 100%;
-            max-width: 800px;
-            margin: 20px 20px 20px 20px;
-            /* Removed bottom margin */
+            width: 21cm;
+            min-height: 29.7cm;
+            margin: 0 auto;
             background-color: #fff;
             border-radius: 10px;
             overflow: hidden;
             padding: 20px;
             box-sizing: border-box;
             box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            page-break-inside: avoid;
         }
 
         header img {
@@ -72,6 +72,7 @@
             background-color: #f8f9fa;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            page-break-inside: avoid;
         }
 
         .section-title {
@@ -88,6 +89,7 @@
 
         .job {
             margin-bottom: 20px;
+            page-break-inside: avoid;
         }
 
         .job h3 {
@@ -109,6 +111,7 @@
         .contact-info {
             display: flex;
             align-items: center;
+            page-break-inside: avoid;
         }
 
         .contact-left {
@@ -173,12 +176,28 @@
 
         .certifications {
             margin-bottom: 0;
-            /* Removed bottom margin */
         }
 
         .certifications ul {
             margin: 0;
             font-size: 1rem;
+        }
+
+        @media print {
+            .container {
+                width: 21cm;
+                height: 29.7cm;
+                margin: 0;
+                padding: 20px;
+            }
+
+            .section {
+                page-break-inside: avoid;
+            }
+
+            .job {
+                page-break-inside: avoid;
+            }
         }
     </style>
 </head>
@@ -189,7 +208,7 @@
         <section>
             <div class="contact-info">
                 <div class="contact-left">
-                    <img src="profile-pic.jpg" alt="Sachin Borde">
+                    <img src="/profile-pic.jpg" alt="Sachin Borde">
                     <p class="contact-name">Sachin Borde</p>
                     <p class="contact-title">Software Engineer</p>
                 </div>
@@ -198,10 +217,8 @@
                         <li><strong>Phone:</strong> <a href="tel:+918605721587">+91 8605721587</a></li>
                         <li><strong>Email:</strong> <a href="mailto:ssborde26@gmail.com">ssborde26@gmail.com</a></li>
                         <li><strong>Location:</strong> Hinjewadi, Pune, India</li>
-                        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sachinsborde"
-                                target="_blank">linkedin.com/in/sachinsborde</a></li>
-                        <li><strong>GitLab:</strong> <a href="https://gitlab.com/sachin-borde"
-                                target="_blank">gitlab.com/sachin-borde</a></li>
+                        <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sachinsborde" target="_blank">linkedin.com/in/sachinsborde</a></li>
+                        <li><strong>GitLab:</strong> <a href="https://gitlab.com/sachin-borde" target="_blank">gitlab.com/sachin-borde</a></li>
                     </ul>
                 </div>
             </div>
@@ -209,10 +226,7 @@
 
         <section>
             <h2 class="section-title">Professional Summary</h2>
-            <p>Creative and results-driven Software Engineer with expertise in Java, Spring Boot, RESTful Web Services,
-                and Microservices. Adept in designing, implementing, and maintaining robust software solutions,
-                optimizing performance, and ensuring reliability. Experienced in Agile methodologies, and collaborative
-                team environments, and proficient in data structures and software development processes.</p>
+            <p>Creative and results-driven Software Engineer with expertise in Java, Spring Boot, RESTful Web Services, and Microservices. Adept in designing, implementing, and maintaining robust software solutions, optimizing performance, and ensuring reliability. Experienced in Agile methodologies, and collaborative team environments, and proficient in data structures and software development processes.</p>
         </section>
 
         <section class="technical-skills">
@@ -239,22 +253,15 @@
                 <p>Hyderabad, IN | May 2022 – Present</p>
                 <h4>Project: Telecom Application</h4>
                 <ul>
-                    <li>Managed and led Telecom industry projects, migrating existing applications into REST-based
-                        microservices to enhance CRUD capabilities.</li>
-                    <li>Designed and implemented a robust microservices architecture using Spring Boot, ensuring
-                        effective input validation.</li>
-                    <li>Produced clean, efficient code based on precise specifications, enhancing application
-                        performance.</li>
+                    <li>Managed and led Telecom industry projects, migrating existing applications into REST-based microservices to enhance CRUD capabilities.</li>
+                    <li>Designed and implemented a robust microservices architecture using Spring Boot, ensuring effective input validation.</li>
+                    <li>Produced clean, efficient code based on precise specifications, enhancing application performance.</li>
                     <li>Troubleshot, debugged and upgraded existing software to maintain optimal functionality.</li>
-                    <li>Spearheaded the transformation of a legacy system into a modern, REST-based microservices
-                        architecture using Spring Boot.</li>
-                    <li>Designed and implemented CRUD capabilities with robust input validation, significantly enhancing
-                        data management efficiency.</li>
-                    <li>Conducted comprehensive testing with Postman, JUnit, and Mockito, ensuring high-quality,
-                        reliable service delivery.</li>
+                    <li>Spearheaded the transformation of a legacy system into a modern, REST-based microservices architecture using Spring Boot.</li>
+                    <li>Designed and implemented CRUD capabilities with robust input validation, significantly enhancing data management efficiency.</li>
+                    <li>Conducted comprehensive testing with Postman, JUnit, and Mockito, ensuring high-quality, reliable service delivery.</li>
                 </ul>
-                <p><strong>Tech Stack:</strong> Java, Spring Boot, MySQL, Postman, Swagger, Microservices, Docker,
-                    GitLab CI/CD</p>
+                <p><strong>Tech Stack:</strong> Java, Spring Boot, MySQL, Postman, Swagger, Microservices, Docker, GitLab CI/CD</p>
             </article>
 
             <article class="job">
@@ -263,20 +270,15 @@
                 <h4>Project: E-commerce Platform Management</h4>
                 <ul>
                     <li>Led E-commerce projects adhering to SDLC and agile methodologies.</li>
-                    <li>Collaborated with analysts and product specialists to refine requirements and design solutions.
-                    </li>
-                    <li>Implemented, tested, and maintained features for low-latency, high-availability, secure, and
-                        performant applications.</li>
+                    <li>Collaborated with analysts and product specialists to refine requirements and design solutions.</li>
+                    <li>Implemented, tested, and maintained features for low-latency, high-availability, secure, and performant applications.</li>
                     <li>Solved complex problems, developing high-quality, reusable, testable, and efficient code.</li>
-                    <li>Enhanced backend functionality by developing and integrating web applications using Java and
-                        custom APIs.</li>
-                    <li>Ensured seamless service performance and reliability through rigorous testing with Postman,
-                        JUnit, and Mockito.</li>
+                    <li>Enhanced backend functionality by developing and integrating web applications using Java and custom APIs.</li>
+                    <li>Ensured seamless service performance and reliability through rigorous testing with Postman, JUnit, and Mockito.</li>
                     <li>Improved application usability and customer satisfaction by implementing client feedback.</li>
                     <li>Managed version control with Git and optimized project dependencies with Maven.</li>
                 </ul>
-                <p><strong>Tech Stack:</strong> Java, Spring Boot, PostgreSQL, Postman, Swagger, RESTful Web Services,
-                    Docker</p>
+                <p><strong>Tech Stack:</strong> Java, Spring Boot, PostgreSQL, Postman, Swagger, RESTful Web Services, Docker</p>
             </article>
         </section>
 
