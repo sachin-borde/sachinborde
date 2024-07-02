@@ -7,332 +7,408 @@
     <title>Sachin Borde - Software Engineer</title>
     <link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:wght@300&display=swap" rel="stylesheet">
     <style>
-        /* Reset default styles */
-        body,
-        h1,
-        h2,
-        h3,
-        h4,
-        h5,
-        h6,
-        p,
-        ul,
-        li {
-            margin: 0;
-            padding: 0;
-        }
-
         body {
-            font-family: 'Georgia';
+            font-family: 'Cascadia Mono', 'Arial', sans-serif;
             line-height: 1.6;
             background-color: #f8f9fa;
-            color: #333;
             margin: 0;
             padding: 0;
+            color: #333;
         }
 
         .container {
-            width: 21cm;
-            min-height: 29.7cm;
-            margin: 0 auto;
+            max-width: 800px;
+            margin: 10px auto;
             background-color: #fff;
-            border-radius: 10px;
+            border-radius: 20px;
             overflow: hidden;
-            padding: 20px;
-            box-sizing: border-box;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            page-break-inside: avoid;
         }
 
-        header img {
-            border-radius: 50%;
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            margin-right: 20px;
+        .header {
+            background-color: #007bff;
+            color: #fff;
+            text-align: center;
+            padding: 15px 0px 8px;
+            margin: 0;
+            border-top-left-radius: 20px;
+            border-top-right-radius: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            display: flex;
+            align-items: center;
         }
 
-        header div {
+        .header-left {
+            padding: 0 20px 0 20px;
+        }
+
+        .header-left img {
+            width: 150px;
+            height: 160px;
+            border-radius: 10%;
+            border: 2px solid #fff;
+            box-shadow: 0 0 0 4px #007bff;
+        }
+
+        .header-right {
             flex: 1;
+            text-align: left;
+            padding-left: 20px;
         }
 
-        header h1 {
-            font-size: 1.5rem;
+        .header h1 {
+            font-size: 2.5rem;
+            margin: 5px 0;
+        }
+
+        .header p {
+            font-size: 1.2rem;
             margin: 0;
         }
 
-        header p {
-            font-size: 1rem;
-            margin: 0;
+
+        .contactinfo {
+            background-color: #ced4da;
+            padding: 15px 15px;
+            border-radius: 15px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
         }
 
-        section {
-            padding: 10px 20px;
-            margin-bottom: 20px;
-            background-color: #f8f9fa;
+        .profsum {
+            background-color: #ced4da;
+            padding: 1px 15px;
+            border-radius: 15px;
+            margin-top: 0px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .company {
+            background-color: #ced4da;
+            padding: 1px 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            margin-bottom: 15px;
+            margin-left: 0px;
+            margin-right: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .project {
+            background-color: #ced4da;
+            padding: 15px 15px;
+            border-radius: 15px;
+            margin-top: 0px;
+            margin-bottom: 1px;
+            margin-left: 0px;
+            margin-right: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .award {
+            background-color: #ced4da;
+            padding: 1px 15px 10px;
+            border-radius: 15px;
+            margin-top: 15px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .award h3 {
+            margin-bottom: 10px;
+        }
+
+        .award-image {
+            max-width: 100%;
+            height: auto;
             border-radius: 10px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            page-break-inside: avoid;
+        }
+
+        .edu1 {
+            background-color: #ced4da;
+            padding: 1px 15px 10px;
+            border-radius: 15px;
+            margin-top: 0px;
+            margin-bottom: 15px;
+            margin-left: 0px;
+            margin-right: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .edu2 {
+            background-color: #ced4da;
+            padding: 1px 15px 10px;
+            border-radius: 15px;
+            margin-top: 0px;
+            margin-bottom: 1px;
+            margin-left: 0px;
+            margin-right: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .skill {
+            background-color: #ced4da;
+            padding: 10px 15px;
+            border-radius: 15px;
+            margin-top: 15px;
+            margin-bottom: 1px;
+            margin-left: 0px;
+            margin-right: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+            display: inline-block;
+        }
+
+        .certify {
+            background-color: #ced4da;
+            padding: 1px 15px 10px;
+            border-radius: 15px;
+            margin-top: 15px;
+            margin-bottom: 0px;
+            margin-left: 0px;
+            margin-right: 0px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+
+        .certify h3 {
+            margin-bottom: 10px;
+        }
+
+        .certify-image {
+            max-width: 100%;
+            height: auto;
+            border-radius: 10px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+
+        .contact-info,
+        .summary,
+        .experience,
+        .education,
+        .skills {
+            padding: 20px;
+            margin: 10px;
+            border-radius: 20px;
+            background-color: #f8f9fa;
+            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
         }
 
         .section-title {
             color: #007bff;
-            font-size: 1.5rem;
+            font-size: 1.8rem;
+            margin-top: 1px;
             margin-bottom: 10px;
+            padding-bottom: 5px;
+            color: #007bff;
         }
 
-        section ul {
+        .contact-info ul,
+        .skills ul,
+        .education ul,
+        .experience ul {
             list-style-type: none;
             padding: 0;
             margin: 0;
         }
 
-        .job {
-            margin-bottom: 20px;
-            page-break-inside: avoid;
+        .footer {
+            text-align: center;
+            padding: 10px 0;
+            background-color: #007bff;
+            color: #fff;
+            margin-top: 10px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 20px;
+            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
         }
 
-        .job h3 {
-            margin: 5px 0;
-            font-size: 1.2rem;
-        }
-
-        .job p {
-            margin: 5px 0;
-            font-size: 1rem;
-        }
-
-        .job ul {
-            list-style-type: disc;
-            padding-left: 20px;
-        }
-
-        /* Updated CSS for Contact Information section */
-        .contact-info {
-            display: flex;
-            align-items: center;
-            page-break-inside: avoid;
-        }
-
-        .contact-left {
-            flex: 0 0 auto;
-            margin-right: 20px;
-        }
-
-        .contact-left img {
-            border-radius: 10%;
-            width: 100px;
-            height: 100px;
-            object-fit: cover;
-            object-position: top;
-            margin-right: 20px;
-        }
-
-        .contact-right {
-            flex: 1;
-        }
-
-        .contact-right ul {
-            list-style-type: none;
-            padding: 0;
-        }
-
-        .contact-right li {
-            margin-bottom: 10px;
-        }
-
-        .contact-right li strong {
-            font-weight: bold;
-            margin-right: 5px;
-        }
-
-        .contact-name {
-            font-size: 1.2rem;
-            margin-bottom: 5px;
-        }
-
-        .technical-skills ul {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 10px;
-        }
-
-        .technical-skills li {
-            background-color: #ced4da;
-            padding: 0px 10px;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .education p {
-            margin: 5px 0;
-            font-size: 1rem;
-        }
-
-        .education ul {
-            margin: 5px 0 0 0;
-            font-size: 1rem;
-        }
-
-        .certifications {
-            margin-bottom: 0;
-        }
-
-        .certifications ul {
+        .footer p {
             margin: 0;
-            font-size: 1rem;
-        }
-
-        @media print {
-            .container {
-                width: 21cm;
-                height: 29.7cm;
-                margin: 0;
-                padding: 20px;
-            }
-
-            .section {
-                page-break-inside: avoid;
-            }
-
-            .job {
-                page-break-inside: avoid;
-            }
         }
     </style>
 </head>
 
 <body>
-
-    <section>
-        <div class="contact-info">
-            <div class="contact-left">
-                <img src="profile-pic.jpg" alt="Sachin Borde">
-                <p class="contact-name">Sachin Borde</p>
-                <p class="contact-title">Software Engineer</p>
+    <div class="container">
+        <header class="header">
+            <div class="header-left">
+                <img src="profile-pic.jpg" alt="Profile Picture">
             </div>
-            <div class="contact-right">
+            <div class="header-right">
+                <h1>Sachin Borde</h1>
+                <p>Software Engineer</p>
+            </div>
+        </header>
+
+
+        <div class="contact-info">
+            <h2 class="section-title">Contact Information</h2>
+            <div class="contactinfo">
                 <ul>
-                    <li><strong>Phone:</strong> <a href="tel:+918605721587">+91 8605721587</a></li>
-                    <li><strong>Email:</strong> <a href="mailto:ssborde26@gmail.com">ssborde26@gmail.com</a></li>
-                    <li><strong>Location:</strong> Hinjewadi, Pune, India</li>
-                    <li><strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sachinsborde"
-                            target="_blank">linkedin.com/in/sachinsborde</a></li>
-                    <li><strong>GitLab:</strong> <a href="https://gitlab.com/sachin-borde"
-                            target="_blank">gitlab.com/sachin-borde</a></li>
+                    <strong>Phone:</strong> <a href="tel:+918605721587">+91 8605721587</a></br>
+                    <strong>Email:</strong> <a href="mailto:ssborde26@gmail.com">ssborde26@gmail.com</a></br>
+                    <strong>Location:</strong> Hinjewadi, Pune, India</br>
+                    <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sachinsborde"
+                        target="_blank">linkedin.com/in/sachinsborde</a></br>
+                    <strong>GitLab:</strong> <a href="https://gitlab.com/sachin-borde"
+                        target="_blank">gitlab.com/sachin-borde</a></br>
                 </ul>
             </div>
         </div>
-    </section>
 
-    <section>
-        <h2 class="section-title">Professional Summary</h2>
-        <p>Creative and results-driven Software Engineer with expertise in Java, Spring Boot, RESTful Web Services, and
-            Microservices. Adept in designing, implementing, and maintaining robust software solutions, optimizing
-            performance, and ensuring reliability. Experienced in Agile methodologies, and collaborative team
-            environments, and proficient in data structures and software development processes.</p>
-    </section>
+        <div class="summary">
+            <h2 class="section-title">Professional Summary</h2>
+            <div class="profsum">
+                <p>Creative and results-driven Software Engineer with expertise in Java, Spring Boot, RESTful Web
+                    Services, and Microservices. Adept in designing, implementing, and maintaining robust software
+                    solutions, optimizing performance, and ensuring reliability. Experienced in Agile methodologies, and
+                    collaborative team environments, and proficient in data structures and software development
+                    processes.</p>
+            </div>
+        </div>
 
-    <section class="technical-skills">
-        <h2 class="section-title">Technical Skills</h2>
-        <ul>
-            <li>Java</li>
-            <li>Spring Boot, Spring Data JPA</li>
-            <li>JUnit, Mockito</li>
-            <li>MySQL, PostgreSQL, MongoDB</li>
-            <li>RESTful Web Services, Microservices</li>
-            <li>Git, GitLab</li>
-            <li>Postman, Swagger</li>
-            <li>Apache Kafka</li>
-            <li>AWS (Amazon Web Services)</li>
-            <li>Docker, Kubernetes, Terraform</li>
-            <li>GitLab CI/CD</li>
-        </ul>
-    </section>
-
-    <section>
-        <h2 class="section-title">Experience</h2>
-        <article class="job">
-            <h3>Software Engineer, GlobalLogic</h3>
-            <p>Hyderabad, IN | May 2022 – Present</p>
-            <h4>Project: Telecom Application</h4>
+        <div class="skills">
+            <h2 class="section-title">Technical Skills</h2>
             <ul>
-                <li>Managed and led Telecom industry projects, migrating existing applications into REST-based
-                    microservices to enhance CRUD capabilities.</li>
-                <li>Designed and implemented a robust microservices architecture using Spring Boot, ensuring effective
-                    input validation.</li>
-                <li>Produced clean, efficient code based on precise specifications, enhancing application performance.
-                </li>
-                <li>Troubleshot, debugged and upgraded existing software to maintain optimal functionality.</li>
-                <li>Spearheaded the transformation of a legacy system into a modern, REST-based microservices
-                    architecture using Spring Boot.</li>
-                <li>Designed and implemented CRUD capabilities with robust input validation, significantly enhancing
-                    data management efficiency.</li>
-                <li>Conducted comprehensive testing with Postman, JUnit, and Mockito, ensuring high-quality, reliable
-                    service delivery.</li>
+                <li class="skill"><strong>Languages: </strong>Java</li></br>
+                <li class="skill"><strong>Frameworks: </strong>Spring Boot, Spring Data JPA</li></br>
+                <li class="skill"><strong>Testing: </strong>JUnit, Mockito</li></br>
+                <li class="skill"><strong>Databases: </strong>MySQL, PostgreSQL, MongoDB</li></br>
+                <li class="skill"><strong>Web Services: </strong>RESTful Web Services, Microservices</li></br>
+                <li class="skill"><strong>Version Control: </strong>Git, GitLab</li></br>
+                <li class="skill"><strong>API Testing: </strong>Postman, Swagger</li></br>
+                <li class="skill"><strong>Event Streaming: </strong>Apache Kafka</li></br>
+                <li class="skill"><strong>Cloud Platform: </strong>AWS (Amazon Web Services)</li></br>
+                <li class="skill"><strong>Dev Ops: </strong>Docker, Kubernetes, Terraform, Gitlab CI/CD</li></br>
             </ul>
-            <p><strong>Tech Stack:</strong> Java, Spring Boot, MySQL, Postman, Swagger, Microservices, Docker, GitLab
-                CI/CD</p>
-        </article>
+        </div>
 
-        <article class="job">
-            <h3>Software Engineer, HCL Technology</h3>
-            <p>Bengaluru, IN | May 2021 – April 2022</p>
-            <h4>Project: E-commerce Platform Management</h4>
-            <ul>
-                <li>Led E-commerce projects adhering to SDLC and agile methodologies.</li>
-                <li>Collaborated with analysts and product specialists to refine requirements and design solutions.</li>
-                <li>Implemented, tested, and maintained features for low-latency, high-availability, secure, and
-                    performant applications.</li>
-                <li>Solved complex problems, developing high-quality, reusable, testable, and efficient code.</li>
-                <li>Enhanced backend functionality by developing and integrating web applications using Java and custom
-                    APIs.</li>
-                <li>Ensured seamless service performance and reliability through rigorous testing with Postman, JUnit,
-                    and Mockito.</li>
-                <li>Improved application usability and customer satisfaction by implementing client feedback.</li>
-                <li>Managed version control with Git and optimized project dependencies with Maven.</li>
-            </ul>
-            <p><strong>Tech Stack:</strong> Java, Spring Boot, PostgreSQL, Postman, Swagger, RESTful Web Services,
-                Docker</p>
-        </article>
-    </section>
+        <div class="experience" id="experience">
+            <h2 class="section-title">Experience</h2>
+            <div class="company">
+                <h3>Software Engineer, GlobalLogic</h3>
+                <p>Hyderabad, IN | May 2022 – Present</p>
+            </div>
+            <div class="project">
+                <strong style="display: block; margin-bottom: 1em;">
+                    <h3>Project: Telecom Application</h3>
+                </strong>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>Managed and led Telecom industry projects, migrating existing applications into REST-based
+                        microservices to enhance CRUD capabilities.</li>
+                    <li>Designed and implemented a robust microservices architecture using Spring Boot, ensuring
+                        effective input validation.</li>
+                    <li>Produced clean, efficient code based on precise specifications, enhancing application
+                        performance.</li>
+                    <li>Troubleshot, debugged and upgraded existing software to maintain optimal functionality.
+                    </li>
+                    <li>Spearheaded the transformation of a legacy system into a modern, REST-based microservices
+                        architecture using Spring Boot.</li>
+                    <li>Designed and implemented CRUD capabilities with robust input validation, significantly
+                        enhancing
+                        data management efficiency.</li>
+                    <li>Conducted comprehensive testing with Postman, JUnit, and Mockito, ensuring high-quality,
+                        reliable service delivery.</li>
+                </ul>
+                <strong style="display: block; margin-bottom: 1em;">
+                    <h3>Tech Stack : </h3> Java, Spring Boot, MySQL, Postman, Swagger, Microservices, Docker, GitLab
+                    CI/CD.
+                </strong>
+            </div>
+            <div class="company">
+                <h3>Software Engineer, HCL Technology</h3>
+                <p>Bengaluru, IN | May 2021 – April 2022</p>
+            </div>
+            <div class="project">
+                <strong style="display: block; margin-bottom: 1em;">
+                    <h3>Project: E-commerce Platform Management</h3>
+                </strong>
+                <ul style="list-style-type: disc; padding-left: 20px;">
+                    <li>Led E-commerce projects adhering to SDLC and agile methodologies.</li>
+                    <li>Collaborated with analysts and product specialists to refine requirements and design solutions.
+                    </li>
+                    <li>Implemented, tested, and maintained features for low-latency, high-availability, secure, and
+                        performant applications.</li>
+                    <li>Solved complex problems, developing high-quality, reusable, testable, and efficient code.</li>
+                    <li>Enhanced backend functionality by developing and integrating web applications using Java and
+                        custom APIs.</li>
+                    <li>Ensured seamless service performance and reliability through rigorous testing with Postman,
+                        JUnit, and Mockito.</li>
+                    <li>Improved application usability and customer satisfaction by implementing client feedback.</li>
+                    <li>Managed version control with Git and optimized project dependencies with Maven.</li>
+                </ul>
+                <strong style="display: block; margin-bottom: 1em;">
+                    <h3>Tech Stack : </h3> Java, Spring Boot, PostgreSQL, Postman, Swagger, RESTful Web Services,
+                    Docker.
+                </strong>
+            </div>
+        </div>
 
-    <section>
-        <h2 class="section-title">Awards and Recognition</h2>
-        <ul>
-            <li>Spotlight Of The Month - April 2024</li>
-            <li>Spotlight Of The Month - July 2023</li>
-        </ul>
-    </section>
+        <div class="education" id="education">
+            <h2 class="section-title">Awards and Recognition</h2>
+            <div class="award">
+                <h3>Spotlight Of The Month - April-24</h3>
+                <img src="Award2.jpg" alt="Spotlight Of The Month - April-24" class="award-image">
+            </div>
+            <div class="award">
+                <h3>Spotlight Of The Month - July-23</h3>
+                <img src="Award1.png" alt="Spotlight Of The Month - July-23" class="award-image">
+            </div>
+        </div>
 
-    <section class="education">
-        <h2 class="section-title">Education</h2>
-        <article>
-            <h3>MCA (Master of Computer Applications)</h3>
-            <p>Savitribai Phule Pune University | April 2023</p>
-            <ul>
-                <li>Percentile: 82.60%</li>
-            </ul>
-        </article>
-        <article>
-            <h3>BSc (Computer Science)</h3>
-            <p>Savitribai Phule Pune University | April 2020</p>
-            <ul>
-                <li>Percentile: 71.16%</li>
-            </ul>
-        </article>
-    </section>
+        <div class="education" id="education">
+            <h2 class="section-title">Education</h2>
+            <div class="edu1">
+                <h3>MCA (Master of Computer Applications)</h3>
+                <ul>
+                    Savitribai Phule Pune University | April 2023</br>
+                    Percentile: 82.60%
+                </ul>
+            </div>
+            <div class="edu2">
+                <h3>BSc (Computer Science)</h3>
+                <ul>
+                    Savitribai Phule Pune University | April 2020</br>
+                    Percentile: 71.16%
+                </ul>
+            </div>
+        </div>
 
-    <section class="certifications">
-        <h2 class="section-title">Certifications</h2>
-        <ul>
-            <li>Udemy Java 8 New Features DurgaSoft</li>
-            <li>Udemy Java 8 New Features Modern Java</li>
-            <li>Udemy Java 9 New Features DurgaSoft</li>
-            <li>Udemy Java Testing with JUnit 5 & Mockito</li>
-            <li>Udemy Easy Byte Spring Boot Master Course</li>
-        </ul>
-    </section>
+        <div class="education" id="education">
+            <h2 class="section-title">Certifications</h2>
+            <div class="certify">
+                <h3>Udemy Java 8 New Features DurgaSoft</h3>
+                <img src="Certificate1.png" alt="Java 8 New Features" class="certify-image">
+            </div>
+            <div class="certify">
+                <h3>Udemy Java 8 New Features modern java</h3>
+                <img src="Certificate2.JPG" alt="Java 8 New Features" class="certify-image">
+            </div>
+            <div class="certify">
+                <h3>Udemy Java 9 New Features DurgaSoft</h3>
+                <img src="Certificate3.jpg" alt="Java 8 New Features" class="certify-image">
+            </div>
+            <div class="certify">
+                <h3>Udemy Java Testing with JUnit 5 & Mockito</h3>
+                <img src="Certificate4.jpg" alt="Java 8 New Features" class="certify-image">
+            </div>
+            <div class="certify">
+                <h3>Udemy Easy Byte Spring Boot Master Course</h3>
+                <img src="Certificate5.png" alt="Java 8 New Features" class="certify-image">
+            </div>
+        </div>
+
+        <footer class="footer">
+            <p>&copy; 2024 Sachin Borde. All rights reserved.</p>
+        </footer>
+    </div>
 </body>
 
 </html>
