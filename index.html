@@ -1,380 +1,843 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sachin Borde - Software Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Cascadia+Mono:wght@300&display=swap" rel="stylesheet">
+    <title>Sachin Borde | Software Engineer</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.0/ScrollTrigger.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/particles.js/2.0.0/particles.min.js"></script>
     <style>
-        body {
-            font-family: 'Cascadia Mono', 'Arial', sans-serif;
-            line-height: 1.6;
-            background-color: #f8f9fa;
+        :root {
+            --primary: #0a192f;
+            --secondary: #64ffda;
+            --text: #8892b0;
+            --light-text: #ccd6f6;
+            --dark-navy: #020c1b;
+            --card-bg: rgba(2, 12, 27, 0.7);
+        }
+
+        * {
             margin: 0;
             padding: 0;
-            color: #333;
+            box-sizing: border-box;
+            font-family: 'Inter', sans-serif;
+        }
+
+        html {
+            scroll-behavior: smooth;
+            scroll-padding-top: 80px;
+        }
+
+        body {
+            background-color: var(--primary);
+            color: var(--text);
+            line-height: 1.6;
+            overflow-x: hidden;
+        }
+
+        #particles-js {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: 1;
         }
 
         .container {
-            max-width: 800px;
-            margin: 10px auto;
-            background-color: #fff;
-            border-radius: 20px;
-            overflow: hidden;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 2rem;
+            position: relative;
+            z-index: 2;
         }
 
-        .header {
-            background-color: #007bff;
-            color: #fff;
-            text-align: center;
-            padding: 15px 0px 8px;
-            margin: 0;
-            border-top-left-radius: 20px;
-            border-top-right-radius: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        nav {
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 100;
+            backdrop-filter: blur(10px);
+            background: rgba(10, 25, 47, 0.85);
+            padding: 1rem 0;
+            box-shadow: 0 10px 30px -10px rgba(2, 12, 27, 0.7);
+        }
+
+        .nav-content {
             display: flex;
+            justify-content: space-between;
             align-items: center;
         }
 
-        .header-left {
-            padding: 0 20px 0 20px;
+        .logo {
+            color: var(--secondary);
+            font-size: 1.5rem;
+            font-weight: bold;
+            text-decoration: none;
+            position: relative;
+            overflow: hidden;
         }
 
-        .header-left img {
-            width: 150px;
-            height: 160px;
-            border-radius: 10%;
-            border: 2px solid #fff;
-            box-shadow: 0 0 0 4px #007bff;
+        .logo::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
         }
 
-        .header-right {
-            flex: 1;
-            text-align: left;
-            padding-left: 20px;
+        .logo:hover::after {
+            transform: translateX(0);
         }
 
-        .header h1 {
-            font-size: 2.5rem;
-            margin: 5px 0;
+        .nav-links {
+            display: flex;
+            gap: 2rem;
         }
 
-        .header p {
+        .nav-links a {
+            color: var(--light-text);
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: color 0.3s;
+            padding: 0.5rem 0;
+            position: relative;
+        }
+
+        .nav-links a::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background-color: var(--secondary);
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .nav-links a:hover::after {
+            transform: scaleX(1);
+        }
+
+        .hero {
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            padding-top: 80px;
+        }
+
+        .hero-content {
+            max-width: 1000px;
+        }
+
+        .subtitle {
+            color: var(--secondary);
             font-size: 1.2rem;
-            margin: 0;
+            margin-bottom: 1rem;
+            font-weight: 500;
         }
 
-
-        .contactinfo {
-            background-color: #ced4da;
-            padding: 15px 15px;
-            border-radius: 15px;
-            margin-top: 0px;
-            margin-bottom: 0px;
-            margin-left: 0px;
-            margin-right: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        .title {
+            color: var(--light-text);
+            font-size: 4.5rem;
+            line-height: 1.1;
+            margin-bottom: 1rem;
+            font-weight: 800;
         }
 
-        .profsum {
-            background-color: #ced4da;
-            padding: 1px 15px;
-            border-radius: 15px;
-            margin-top: 0px;
-            margin-bottom: 0px;
-            margin-left: 0px;
-            margin-right: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        .description {
+            font-size: 1.25rem;
+            margin-bottom: 2rem;
+            max-width: 600px;
         }
 
-        .company {
-            background-color: #ced4da;
-            padding: 1px 15px;
-            border-radius: 15px;
-            margin-top: 15px;
-            margin-bottom: 15px;
-            margin-left: 0px;
-            margin-right: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .project {
-            background-color: #ced4da;
-            padding: 15px 15px;
-            border-radius: 15px;
-            margin-top: 0px;
-            margin-bottom: 1px;
-            margin-left: 0px;
-            margin-right: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .award {
-            background-color: #ced4da;
-            padding: 1px 15px 10px;
-            border-radius: 15px;
-            margin-top: 15px;
-            margin-bottom: 0px;
-            margin-left: 0px;
-            margin-right: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .award h3 {
-            margin-bottom: 10px;
-        }
-
-        .award-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .edu1 {
-            background-color: #ced4da;
-            padding: 1px 15px 10px;
-            border-radius: 15px;
-            margin-top: 0px;
-            margin-bottom: 15px;
-            margin-left: 0px;
-            margin-right: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .edu2 {
-            background-color: #ced4da;
-            padding: 1px 15px 10px;
-            border-radius: 15px;
-            margin-top: 0px;
-            margin-bottom: 1px;
-            margin-left: 0px;
-            margin-right: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
-        }
-
-        .skill {
-            background-color: #ced4da;
-            padding: 10px 15px;
-            border-radius: 15px;
-            margin-top: 15px;
-            margin-bottom: 1px;
-            margin-left: 0px;
-            margin-right: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        .cta-button {
+            background: transparent;
+            border: 1px solid var(--secondary);
+            color: var(--secondary);
+            padding: 1.2rem 2.5rem;
+            font-size: 1rem;
+            cursor: pointer;
+            transition: all 0.3s;
+            text-decoration: none;
             display: inline-block;
+            border-radius: 4px;
+            position: relative;
+            overflow: hidden;
         }
 
-        .certify {
-            background-color: #ced4da;
-            padding: 1px 15px 10px;
-            border-radius: 15px;
-            margin-top: 15px;
-            margin-bottom: 0px;
-            margin-left: 0px;
-            margin-right: 0px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        .cta-button::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(100, 255, 218, 0.1);
+            transform: translateX(-100%);
+            transition: transform 0.3s ease;
         }
 
-        .certify h3 {
-            margin-bottom: 10px;
+        .cta-button:hover::before {
+            transform: translateX(0);
         }
 
-        .certify-image {
-            max-width: 100%;
-            height: auto;
-            border-radius: 10px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-        }
-
-        .contact-info,
-        .summary,
-        .experience,
-        .education,
-        .skills {
-            padding: 20px;
-            margin: 10px;
-            border-radius: 20px;
-            background-color: #f8f9fa;
-            box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+        .section {
+            padding: 100px 0;
         }
 
         .section-title {
-            color: #007bff;
+            color: var(--light-text);
+            font-size: 2.5rem;
+            margin-bottom: 3rem;
+            position: relative;
+            display: flex;
+            align-items: center;
+            font-weight: 700;
+        }
+
+        .section-title::after {
+            content: "";
+            display: block;
+            width: 300px;
+            height: 1px;
+            background: var(--text);
+            margin-left: 20px;
+        }
+
+        .section-title span {
+            color: var(--secondary);
+            margin-right: 1rem;
+            font-family: 'Fira Code', monospace;
             font-size: 1.8rem;
-            margin-top: 1px;
-            margin-bottom: 10px;
-            padding-bottom: 5px;
-            color: #007bff;
         }
 
-        .contact-info ul,
-        .skills ul,
-        .education ul,
-        .experience ul {
-            list-style-type: none;
-            padding: 0;
-            margin: 0;
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
         }
 
-        .footer {
+        .skill-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s, box-shadow 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .skill-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px -20px rgba(2, 12, 27, 0.7);
+        }
+
+        .skill-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            font-size: 1.3rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .skill-card ul {
+            list-style: none;
+            margin-top: 1rem;
+        }
+
+        .skill-card ul li {
+            margin-bottom: 0.5rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .skill-card ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        .experience-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            margin-bottom: 2rem;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+            transition: transform 0.3s;
+        }
+
+        .experience-card:hover {
+            transform: translateX(10px);
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            margin-bottom: 1rem;
+        }
+
+        .experience-company {
+            color: var(--secondary);
+            font-size: 1.2rem;
+            font-weight: 600;
+        }
+
+        .experience-date {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .experience-title {
+            color: var(--light-text);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+        }
+
+        .experience-highlights {
+            margin-top: 1.5rem;
+        }
+
+        .experience-highlights h4 {
+            color: var(--light-text);
+            margin-bottom: 1rem;
+            font-size: 1.1rem;
+        }
+
+        .experience-highlights ul {
+            list-style: none;
+        }
+
+        .experience-highlights ul li {
+            margin-bottom: 1rem;
+            position: relative;
+            padding-left: 1.5rem;
+        }
+
+        .experience-highlights ul li::before {
+            content: "▹";
+            position: absolute;
+            left: 0;
+            color: var(--secondary);
+        }
+
+        .key-technologies {
+            margin-top: 1.5rem;
+            padding-top: 1rem;
+            border-top: 1px solid rgba(100, 255, 218, 0.1);
+            color: var(--secondary);
+            font-style: italic;
+        }
+
+        .awards-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .award-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .award-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .award-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+
+        .award-card h3::before {
+            content: "🏆";
+        }
+
+        .education-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .education-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .education-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .education-card h3 {
+            color: var(--light-text);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .university {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .education-card .date {
+            color: var(--text);
+            font-size: 0.9rem;
+        }
+
+        .languages-section {
             text-align: center;
-            padding: 10px 0;
-            background-color: #007bff;
-            color: #fff;
-            margin-top: 10px;
-            border-bottom-left-radius: 20px;
-            border-bottom-right-radius: 20px;
-            box-shadow: 0 -4px 8px rgba(0, 0, 0, 0.1);
+            margin-top: 3rem;
         }
 
-        .footer p {
-            margin: 0;
+        .languages-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .language-card {
+            background: var(--card-bg);
+            padding: 1.5rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .language-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .language-card h3 {
+            color: var(--secondary);
+            margin-bottom: 0.5rem;
+        }
+
+        .language-card p {
+            color: var(--text);
+        }
+
+        .contact-section {
+            text-align: center;
+            padding: 150px 0;
+        }
+
+        .contact-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 3rem;
+        }
+
+        .contact-card {
+            background: var(--card-bg);
+            padding: 2rem;
+            border-radius: 8px;
+            transition: transform 0.3s;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(100, 255, 218, 0.1);
+        }
+
+        .contact-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .contact-card h3 {
+            color: var(--secondary);
+            margin-bottom: 1rem;
+        }
+
+        .contact-card a {
+            color: var(--light-text);
+            text-decoration: none;
+            transition: color 0.3s;
+        }
+
+        .contact-card a:hover {
+            color: var(--secondary);
+        }
+
+        @media (max-width: 768px) {
+            .title {
+                font-size: 3rem;
+            }
+
+            .section-title {
+                font-size: 2rem;
+            }
+
+            .section-title::after {
+                width: 150px;
+            }
+
+            .nav-links {
+                display: none;
+            }
+
+            .experience-header {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+
+            .container {
+                padding: 0 1rem;
+            }
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(0px);
+            }
+            50% {
+                transform: translateY(-10px);
+            }
+            100% {
+                transform: translateY(0px);
+            }
+        }
+
+        .floating {
+            animation: float 3s ease-in-out infinite;
         }
     </style>
 </head>
-
 <body>
-    <div class="container">
-        <header class="header">
-            <div class="header-left">
-                <img src="profile-pic.jpg" alt="Profile Picture">
-            </div>
-            <div class="header-right">
-                <h1>Sachin Borde</h1>
-                <p>Software Engineer</p>
-                <p>(2+ years of experience)</p>
-            </div>
-        </header>
+    <div id="particles-js"></div>
 
-
-        <div class="contact-info">
-            <h2 class="section-title">Contact Information</h2>
-            <div class="contactinfo">
-                <ul>
-                    <strong>Phone:</strong> <a href="tel:+918605721587">+91 8605721587</a></br>
-                    <strong>Email:</strong> <a href="mailto:ssborde26@gmail.com">ssborde26@gmail.com</a></br>
-                    <strong>Location:</strong> Hinjewadi, Pune, India</br>
-                    <strong>LinkedIn:</strong> <a href="https://linkedin.com/in/sachinsborde"
-                        target="_blank">linkedin.com/in/sachinsborde</a></br>
-                    <strong>GitLab:</strong> <a href="https://gitlab.com/sachin-borde"
-                        target="_blank">gitlab.com/sachin-borde</a></br>
-                </ul>
+    <nav>
+        <div class="container nav-content">
+            <a href="#" class="logo">SB</a>
+            <div class="nav-links">
+                <a href="#about">About</a>
+                <a href="#skills">Skills</a>
+                <a href="#experience">Experience</a>
+                <a href="#awards">Awards</a>
+                <a href="#education">Education</a>
+                <a href="#contact">Contact</a>
             </div>
         </div>
+    </nav>
 
-        <div class="summary">
-            <h2 class="section-title">Professional Summary</h2>
-            <div class="profsum">
-                <p>Software Engineer with 2+ years of Java development experience, specializing in Spring Boot, MySQL,
-                    and Microservices. Expert in designing and maintaining robust software solutions and optimizing
-                    performance. Proficient in Agile methodologies and team collaboration. Eager to expand knowledge in
-                    DevOps practices and continuously enhance technical skills.</p>
+    <section class="hero">
+        <div class="container hero-content">
+            <p class="subtitle">Hi, my name is</p>
+            <h1 class="title">Sachin Borde</h1>
+            <h2 class="title" style="color: var(--text)">Building scalable solutions.</h2>
+            <p class="description">
+                I'm a software engineer with 3.6+ years of experience specializing in Java development, 
+                Spring Boot, Microservices, and MySQL. Currently focused on modernizing legacy systems 
+                and building high-performance applications at GlobalLogic.
+            </p>
+            <a href="#contact" class="cta-button">Get In Touch</a>
+        </div>
+    </section>
+
+    <section id="skills" class="section">
+        <div class="container">
+            <h2 class="section-title"><span>01.</span>Skills & Expertise</h2>
+            <div class="skills-grid">
+                <div class="skill-card">
+                    <h3>Programming Languages</h3>
+                    <ul>
+                        <li>Java (Advanced)</li>
+                        <li>RESTful API Design</li>
+                        <li>Microservices Architecture</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Frameworks & Technologies</h3>
+                    <ul>
+                        <li>Spring Boot</li>
+                        <li>RESTful APIs</li>
+                        <li>Microservices</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>Database & Storage</h3>
+                    <ul>
+                        <li>MySQL</li>
+                        <li>Database Design</li>
+                        <li>CRUD Operations</li>
+                    </ul>
+                </div>
+                <div class="skill-card">
+                    <h3>DevOps & Tools</h3>
+                    <ul>
+                        <li>Docker</li>
+                        <li>Git</li>
+                        <li>Amazon Web Services (AWS)</li>
+                        <li>Postman</li>
+                        <li>Swagger</li>
+                    </ul>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="skills">
-            <h2 class="section-title">Technical Skills</h2>
-            <ul>
-                <li class="skill"><strong>Languages: </strong>Java</li></br>
-                <li class="skill"><strong>Frameworks: </strong>Spring Boot</li></br>
-                <li class="skill"><strong>Databases: </strong>MySQL</li></br>
-                <li class="skill"><strong>Version Control: </strong>Git</li></br>
-                <li class="skill"><strong>API Testing: </strong>Postman</li></br>
-                <li class="skill"><strong>Web Services: </strong>Microservices</li></br>
-                <li class="skill"><strong>Event Streaming: </strong>Apache Kafka</li></br>
-                <li class="skill"><strong>Containerization Tool: </strong>Docker</li></br>
-                <li class="skill"><strong>Pipeline: </strong>Gitlab CI/CD</li></br>
-                <li class="skill"><strong>Cloud Platform: </strong>AWS (Amazon Web Services)</li></br>
-            </ul>
-        </div>
+    <section id="experience" class="section">
+        <div class="container">
+            <h2 class="section-title"><span>02.</span>Work Experience</h2>
+            
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-company">GlobalLogic, Hyderabad</div>
+                    <div class="experience-date">May 2022 - Present</div>
+                </div>
+                <h3 class="experience-title">Software Engineer</h3>
+                <div class="experience-highlights">
+                    <h4>Project Highlights: Migration of Telecom Applications</h4>
+                    <ul>
+                        <li>Migrated legacy desktop-based Telecom applications into web-based REST microservices using Spring Boot, optimizing CRUD operations and data management efficiency.</li>
+                        <li>Designed and implemented a scalable microservices architecture with robust input validation, ensuring optimal performance and maintainability.</li>
+                        <li>Developed clean, efficient, and well-documented code, modernizing outdated systems into user-friendly web architectures tailored to business requirements.</li>
+                        <li>Troubleshot, debugged, and enhanced software to maintain high reliability and performance post-migration.</li>
+                        <li>Conducted thorough testing with Postman and Swagger, ensuring the delivery of high-quality web services.</li>
+                        <li>Deployed microservices using Docker, achieving scalability, portability, and consistent performance across environments.</li>
+                    </ul>
+                    <div class="key-technologies">
+                        Key Technologies: Spring Boot, MySQL, Docker, Postman, Swagger, Apache Kafka
+                    </div>
+                </div>
+            </div>
 
-        <div class="experience" id="experience">
-            <h2 class="section-title">Experience</h2>
-            <div class="company">
-                <h3>Software Engineer, GlobalLogic</h3>
-                <p>Hyderabad, IN | May 2022 – Present</p>
-            </div>
-            <div class="project">
-                <strong style="display: block; margin-bottom: 1em;">
-                    <h3>Project: Telecom Application (T-Mobile)</h3>
-                </strong>
-                <ul style="list-style-type: disc; padding-left: 20px;">
-                    <li>Transformed Telecom applications to web-based REST microservices using Spring Boot,
-                        enhancing CRUD capabilities.</li>
-                    <li>Enhanced data management efficiency by designing scalable microservices architecture with
-                        robust input validation.</li>
-                    <li>Developed clean, efficient code based on specifications, modernizing legacy desktop systems.
-                    </li>
-                    <li>Troubleshot and upgraded software for high performance and reliability.</li>
-                    <li>Conducted comprehensive testing with Postman and Swagger, ensuring reliable service
-                        delivery.</li>
-                    <li>Deployed microservices using Docker for portability and scalability.</li>
-                    <li>Integrated GitLab CI/CD pipelines for automated testing and deployment, improving workflow
-                        efficiency.</li>
-                </ul>
-            </div>
-        </div>
-
-        <div class="education" id="education">
-            <h2 class="section-title">Awards and Recognition</h2>
-            <div class="award">
-                <h3>Spotlight Of The Month - April-24</h3>
-                <img src="Award2.jpg" alt="Spotlight Of The Month - April-24" class="award-image">
-            </div>
-            <div class="award">
-                <h3>Spotlight Of The Month - July-23</h3>
-                <img src="Award1.png" alt="Spotlight Of The Month - July-23" class="award-image">
+            <div class="experience-card">
+                <div class="experience-header">
+                    <div class="experience-company">HCL Technologies, Pune</div>
+                    <div class="experience-date">May 2021 - April 2022</div>
+                </div>
+                <h3 class="experience-title">Software Engineer</h3>
+                <div class="experience-highlights">
+                    <h4>Project Highlights: E-commerce Application Development</h4>
+                    <ul>
+                        <li>Led the development of a full-stack e-commerce platform, ensuring scalability, high-volume transaction handling, and seamless user experiences.</li>
+                        <li>Architected and implemented a RESTful microservices architecture using Spring Boot, enabling features such as product catalog management, shopping carts, secure payment processing, and order tracking.</li>
+                        <li>Integrated Docker for consistency, scalability, and portability across development, staging, and production environments.</li>
+                        <li>Implemented robust system security with encryption, input validation, and compliance with industry standards, ensuring data integrity and user protection.</li>
+                        <li>Performed comprehensive unit and integration testing using Postman and Swagger to ensure high-quality service delivery.</li>
+                        <li>Collaborated with cross-functional teams to align business goals and technical requirements, delivering a customer-centric platform designed for reliability and performance.</li>
+                    </ul>
+                    <div class="key-technologies">
+                        Key Technologies: Spring Boot, MySQL, Docker, Postman, Swagger
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="education" id="education">
-            <h2 class="section-title">Education</h2>
-            <div class="edu1">
-                <h3>MCA (Master of Computer Applications)</h3>
-                <ul>
-                    Savitribai Phule Pune University | April 2023</br>
-                    Percentile: 82.60%
-                </ul>
-            </div>
-            <div class="edu2">
-                <h3>BSc (Computer Science)</h3>
-                <ul>
-                    Savitribai Phule Pune University | April 2020</br>
-                    Percentile: 71.16%
-                </ul>
+    <section id="awards" class="section">
+        <div class="container">
+            <h2 class="section-title"><span>03.</span>Awards & Recognition</h2>
+            <div class="awards-grid">
+                <div class="award-card">
+                    <h3>Spotlight of the Month</h3>
+                    <p>Received twice for exceptional project contributions and delivering high-quality solutions.</p>
+                </div>
+                <div class="award-card">
+                    <h3>STAR Rating</h3>
+                    <p>Achieved in Annual Performance Review for outstanding performance and consistent delivery.</p>
+                </div>
             </div>
         </div>
+    </section>
 
-        <div class="education" id="education">
-            <h2 class="section-title">Certifications</h2>
-            <div class="certify">
-                <h3>Udemy Java 8 New Features DurgaSoft</h3>
-                <img src="Certificate1.png" alt="Java 8 New Features" class="certify-image">
+    <section id="education" class="section">
+        <div class="container">
+            <h2 class="section-title"><span>04.</span>Education</h2>
+            <div class="education-grid">
+                <div class="education-card">
+                    <h3>Master of Computer Applications (MCA)</h3>
+                    <div class="university">Pune University, Pune</div>
+                    <div class="date">June 2021 – April 2023</div>
+                </div>
+                <div class="education-card">
+                    <h3>Bachelor of Science (BSc) in Computer Science</h3>
+                    <div class="university">Pune University, Pune</div>
+                    <div class="date">June 2017 – April 2020</div>
+                </div>
             </div>
-            <div class="certify">
-                <h3>Udemy Java 8 New Features modern java</h3>
-                <img src="Certificate2.JPG" alt="Java 8 New Features" class="certify-image">
-            </div>
-            <div class="certify">
-                <h3>Udemy Java 9 New Features DurgaSoft</h3>
-                <img src="Certificate3.jpg" alt="Java 8 New Features" class="certify-image">
-            </div>
-            <div class="certify">
-                <h3>Udemy Java Testing with JUnit 5 & Mockito</h3>
-                <img src="Certificate4.jpg" alt="Java 8 New Features" class="certify-image">
-            </div>
-            <div class="certify">
-                <h3>Udemy Easy Byte Spring Boot Master Course</h3>
-                <img src="Certificate5.png" alt="Java 8 New Features" class="certify-image">
+
+            <div class="languages-section">
+                <h2 class="section-title"><span>05.</span>Languages</h2>
+                <div class="languages-grid">
+                    <div class="language-card">
+                        <h3>English</h3>
+                        <p>Full Professional Proficiency</p>
+                    </div>
+                    <div class="language-card">
+                        <h3>Hindi</h3>
+                        <p>Native or Bilingual Proficiency</p>
+                    </div>
+                </div>
             </div>
         </div>
+    </section>
 
-        <footer class="footer">
-            <p>&copy; 2024 Sachin Borde. All rights reserved.</p>
-        </footer>
-    </div>
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <h2 class="section-title"><span>06.</span>Get In Touch</h2>
+            <p>I'm currently open to new opportunities and collaborations.</p>
+            <div class="contact-grid">
+                <div class="contact-card">
+                    <h3>Email</h3>
+                    <a href="mailto:sachinborde110@gmail.com">sachinborde110@gmail.com</a>
+                </div>
+                <div class="contact-card">
+                    <h3>Phone</h3>
+                    <a href="tel:+918605721587">+91 8605721587</a>
+                </div>
+                <div class="contact-card">
+                    <h3>LinkedIn</h3>
+                    <a href="https://linkedin.com/in/sachinsborde" target="_blank">linkedin.com/in/sachinsborde</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Initialize particles.js
+        particlesJS('particles-js', {
+            particles: {
+                number: {
+                    value: 80,
+                    density: {
+                        enable: true,
+                        value_area: 800
+                    }
+                },
+                color: {
+                    value: '#64ffda'
+                },
+                shape: {
+                    type: 'circle'
+                },
+                opacity: {
+                    value: 0.5,
+                    random: false
+                },
+                size: {
+                    value: 3,
+                    random: true
+                },
+                line_linked: {
+                    enable: true,
+                    distance: 150,
+                    color: '#64ffda',
+                    opacity: 0.2,
+                    width: 1
+                },
+                move: {
+                    enable: true,
+                    speed: 2,
+                    direction: 'none',
+                    random: false,
+                    straight: false,
+                    out_mode: 'out',
+                    bounce: false
+                }
+            },
+            interactivity: {
+                detect_on: 'canvas',
+                events: {
+                    onhover: {
+                        enable: true,
+                        mode: 'grab'
+                    },
+                    onclick: {
+                        enable: true,
+                        mode: 'push'
+                    },
+                    resize: true
+                }
+            },
+            retina_detect: true
+        });
+
+        // GSAP Animations
+        gsap.registerPlugin(ScrollTrigger);
+
+        // Hero animations
+        gsap.from('.subtitle', {
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            delay: 0.5
+        });
+
+        gsap.from('.title', {
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            delay: 0.7,
+            stagger: 0.2
+        });
+
+        gsap.from('.description', {
+            opacity: 0,
+            y: 20,
+            duration: 1,
+            delay: 1.1
+        });
+
+        // Scroll animations
+        gsap.utils.toArray('.skill-card').forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top bottom-=100',
+                    toggleActions: 'play none none reverse'
+                },
+                opacity: 0,
+                y: 50,
+                duration: 0.8
+            });
+        });
+
+        gsap.utils.toArray('.experience-card').forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top bottom-=100',
+                    toggleActions: 'play none none reverse'
+                },
+                opacity: 0,
+                x: -50,
+                duration: 0.8
+            });
+        });
+
+        gsap.utils.toArray('.award-card, .education-card, .language-card, .contact-card').forEach(card => {
+            gsap.from(card, {
+                scrollTrigger: {
+                    trigger: card,
+                    start: 'top bottom-=100',
+                    toggleActions: 'play none none reverse'
+                },
+                opacity: 0,
+                y: 30,
+                duration: 0.8
+            });
+        });
+    </script>
 </body>
-
 </html>
